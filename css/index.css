@@ -1,0 +1,56 @@
+@import "tailwindcss";
+@source "../../.flowbite-react/class-list.json";
+@import "flowbite-react/plugin/tailwindcss";
+@source "../.flowbite-react/class-list.json";
+@import "./fonts.css";
+@import "./themify-icons.css";
+@custom-variant dark (&: where(.dark, .dark *));
+
+@theme {
+  /* ====font */
+  --font-sans: kalameh_md;
+  --font-kalameh-bold: kalameh_bold;
+  --font-kalameh-md: kalameh_md;
+  --font-kalameh-black: kalameh_black;
+  /* ============================== */
+  --color-primary: #2563eb;
+  --color-secondary: rgba(85 118 139);
+  --color-third: #10b981;
+  --color-background: rgba(233, 237, 247);
+  --color-surface: #fff;
+  --color-muted: #e5e7eb;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+  --color-info: #3b82f6;
+  --color-disabled: #d1d5db;
+  --color-light: #fff;
+  --color-text-light: #fff;
+  --color-text-dark: #111827;
+  /* ================================ */
+  --shadow: #000 0 5px 41px -26px;
+}
+
+@layer base {
+  input,
+  textarea,
+  select,
+  button,
+  [type="checkbox"],
+  [type="radio"] {
+    @apply focus:border-gray-300! focus:ring-0! focus:outline-none!;
+  }
+
+  button {
+    @apply cursor-pointer;
+  }
+}
+
+@utility container {
+  padding-inline: 15px;
+  margin-inline: auto;
+}
+
+body {
+  @apply bg-background;
+  direction: rtl;
+}
