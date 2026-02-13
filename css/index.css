@@ -3,7 +3,6 @@
 @import "flowbite-react/plugin/tailwindcss";
 @source "../.flowbite-react/class-list.json";
 @import "./fonts.css";
-@import "./themify-icons.css";
 @custom-variant dark (&: where(.dark, .dark *));
 
 @theme {

@@ -1,8 +1,9 @@
+"use client";
 import { useState } from "react";
-import avatar from "./../../assets/images/avatar.jpg";
-import Logo from "./../../assets/images/SVG/logo.svg";
 import { Avatar } from "flowbite-react";
-import { Link } from "react-router";
+import Link from "next/link";
+import Image from "next/image";
+import { FiMenu } from "react-icons/fi";
 
 type list = {
   name: string;
@@ -32,14 +33,18 @@ const Menu = () => {
     <ul className="text-light flex items-center justify-center gap-4 text-xs md:text-sm lg:justify-start lg:text-black">
       {MenuList.map((i, index) => (
         <li key={index}>
-          <Link to={i.link}>{i.name}</Link>
+          <Link href={i.link}>{i.name}</Link>
         </li>
       ))}
     </ul>
   );
 };
 
-export default function Header() {
+export default function Header({
+  setOpenMenu,
+}: {
+  setOpenMenu: React.Dispatch<React.SetStateAction<boolean>>;
+}) {
   return (
     <header className="bg-light relative z-0 rounded-b-2xl px-5 py-2 shadow">
       <div className="grid grid-cols-12 items-center">
@@ -50,17 +55,26 @@ export default function Header() {
           </nav>
           {/* menu icon show on mobile */}
           <div className="lg:hidden">
-            <button>
-              <i className="ti-menu" />
+            <button
+              className="grid place-items-center"
+              onClick={() => setOpenMenu((pre) => !pre)}
+            >
+              <FiMenu className="text-2xl" />
             </button>
           </div>
         </div>
         <div className="col-span-6">
-          <img src={Logo} alt="logo" className="mx-auto block h-12" />
+          <Image
+            src={"/assets/images/SVG/logo.svg"}
+            alt="logo"
+            className="mx-auto block h-12"
+            width={100}
+            height={100}
+          />
         </div>
         <div className="col-span-3">
           <Avatar
-            img={avatar}
+            img={"/assets/images/avatar.jpg"}
             rounded
             status="online"
             statusPosition="bottom-right"

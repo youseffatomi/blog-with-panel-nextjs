@@ -11,7 +11,7 @@ const Theme = createTheme({
 
     color: {
       default: "bg-primary",
-      secendary: "bg-secendary",
+      secondary: "bg-secondary hover:bg-third text-white hover:text-black",
       third: "bg-third",
     },
     outlineColor: {
@@ -26,6 +26,16 @@ const Theme = createTheme({
       input: {
         base: "rounded-2xl",
       },
+    },
+  },
+  sidebar: {
+    root: {
+      base: "h-full",
+      inner: "bg-[none]",
+    },
+    item: {
+      base: "text-secondary hover:bg-secondary group transition-all hover:text-white",
+      icon: { base: "text-secondary transition-all group-hover:text-white" },
     },
   },
 });

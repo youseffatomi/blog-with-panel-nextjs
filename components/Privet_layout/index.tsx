@@ -1,28 +1,26 @@
-import { useEffect } from "react";
-import { Outlet, useNavigate } from "react-router";
+"use client";
 import Header from "./header";
 import Aside from "./aside";
+import { useState } from "react";
 
-export default function Layout() {
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    const Token = localStorage.getItem("token");
-
-    if (!Token) navigate("/auth");
-  });
+export default function PriveteLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  const [openMenu, setOpenMenu] = useState(false);
 
   return (
     <div>
       <div className="container">
-        <Header />
+        <Header {...{ openMenu, setOpenMenu }} />
 
-        <section className="mt-10 grid grid-cols-1 gap-8 lg:grid-cols-18">
-          <div className="lg:col-span-3">
-            <Aside />
+        <section className="mt-10 grid grid-cols-1 gap-8 lg:grid-cols-16 xl:grid-cols-16">
+          <div className="lg:col-span-4 xl:col-span-3">
+            <Aside {...{ openMenu, setOpenMenu }} />
           </div>
-          <main className="lg:col-span-15 lg:h-[calc(100vh-150px)]">
-            <Outlet />
+          <main className="h-[calc(100vh-150px)] lg:col-span-12 xl:col-span-13">
+            {children}
           </main>
         </section>
       </div>

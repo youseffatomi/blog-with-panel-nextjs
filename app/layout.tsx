@@ -1,4 +1,6 @@
+import Theme from "@/config/theme";
 import AuthProvider from "@/providers/AuthProvider";
+import { ThemeProvider } from "flowbite-react";
 
 export const metadata = {
   title: "Next.js",
@@ -13,7 +15,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <AuthProvider>{children}</AuthProvider>
+        <ThemeProvider theme={Theme}>
+          <AuthProvider>{children}</AuthProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
