@@ -34,8 +34,8 @@ const Theme = createTheme({
       inner: "bg-[none]",
     },
     item: {
-      base: "text-secondary hover:bg-secondary group transition-all hover:text-white",
-      icon: { base: "text-secondary transition-all group-hover:text-white" },
+      base: "group hover:bg-secondary text-black transition-all hover:text-white",
+      icon: { base: "text-black transition-all group-hover:text-white" },
     },
   },
 });

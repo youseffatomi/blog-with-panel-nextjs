@@ -8,9 +8,18 @@ import {
   SidebarItemGroup,
   SidebarItems,
 } from "flowbite-react";
+import { signOut } from "next-auth/react";
 import Image from "next/image";
 
-import { FiHome, FiChevronRight } from "react-icons/fi";
+import {
+  FiChevronRight,
+  FiBarChart2,
+  FiFileText,
+  FiEdit3,
+  FiUsers,
+  FiSettings,
+  FiLogOut,
+} from "react-icons/fi";
 
 interface Items {
   name: string;
@@ -27,23 +36,28 @@ export default function Aside({
 }) {
   const items: Items[] = [
     {
-      name: "داشبورد",
-      icon: FiHome,
+      name: "در یک نگاه",
+      icon: FiBarChart2,
       link: "#",
     },
     {
-      name: "بلاگ",
-      icon: FiHome,
+      name: "مقالات",
+      icon: FiFileText,
+      link: "#",
+    },
+    {
+      name: "نظرات",
+      icon: FiEdit3,
       link: "#",
     },
     {
       name: "کاربران",
-      icon: FiHome,
+      icon: FiUsers,
       link: "#",
     },
     {
       name: "تنظیمات",
-      icon: FiHome,
+      icon: FiSettings,
       link: "#",
     },
   ];
@@ -74,6 +88,14 @@ export default function Aside({
                   {val.name}
                 </SidebarItem>
               ))}
+              <SidebarItem
+                as="button"
+                className="w-full text-right text-red-700 hover:bg-red-700 [&>svg]:text-red-700"
+                onClick={() => signOut()}
+                icon={FiLogOut}
+              >
+                خروج
+              </SidebarItem>
             </SidebarItemGroup>
           </SidebarItems>
         </Sidebar>
