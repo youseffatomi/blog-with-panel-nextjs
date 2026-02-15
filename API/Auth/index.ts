@@ -3,7 +3,7 @@ import { AuthAPI } from "@/config/axios";
 import { useSession } from "next-auth/react";
 
 import { getServerSession } from "next-auth";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import { authOptions } from "@/config/Auth";
 
 interface RESPONSE {
   accessToken: string;
@@ -20,15 +20,14 @@ interface RESPONSE {
 export const Login = async (
   username: string,
   password: string,
-): Promise<RESPONSE> => {
+): Promise<AxiosResponse<RESPONSE>> => {
   const res: AxiosResponse<RESPONSE> = await AuthAPI.post("auth/login", {
     username,
     password,
     expiresInMins: 20,
   });
 
-  const data = res.data;
-  return data;
+  return res;
 };
 
 export const GetClientToken = () => useSession()?.data?.accessToken;

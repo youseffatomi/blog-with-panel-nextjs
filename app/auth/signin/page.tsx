@@ -7,8 +7,10 @@ import { signIn } from "next-auth/react";
 import toast from "react-hot-toast";
 import * as Yup from "yup";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function Signin() {
+  const Router = useRouter();
   const formik = useFormik({
     initialValues: { username: "", password: "" },
     validateOnBlur: false,
@@ -19,16 +21,24 @@ export default function Signin() {
     }),
 
     onSubmit: async (values) => {
-      const res = signIn("credentials", {
+      toast.loading("درحال ارسال", { id: "authLoad" });
+      const res = await signIn("credentials", {
         ...values,
-        callbackUrl: "/panel",
+        redirect: false,
       });
 
-      await toast.promise(res, {
-        loading: "درحال ارسال",
-        error: "نام کاربری یا رمز عبور اشتباه است",
-        success: "ورود با  موفقیت انجام شد",
-      });
+      console.log(res);
+
+      if (res?.error) {
+        toast.remove("authLoad");
+        toast.error("نام کاربری یا رمز عبور اشتباه است");
+      }
+
+      if (res?.ok) {
+        toast.remove("authLoad");
+        toast.success("ورود با  موفقیت انجام شد");
+        Router.push("/panel");
+      }
     },
   });
 

@@ -1,6 +1,7 @@
 import Theme from "@/config/theme";
 import AuthProvider from "@/providers/AuthProvider";
 import { ThemeProvider } from "flowbite-react";
+import { Toaster } from "react-hot-toast";
 
 import "@/css/index.css";
 
@@ -18,6 +19,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <ThemeProvider theme={Theme}>
+          <Toaster />
           <AuthProvider>{children}</AuthProvider>
         </ThemeProvider>
       </body>

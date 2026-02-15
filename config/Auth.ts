@@ -13,16 +13,20 @@ export const authOptions: NextAuthOptions = {
       async authorize(credentials) {
         if (!credentials) return null;
 
-        const data = await Login(credentials.username, credentials.password);
+        try {
+          const res = await Login(credentials.username, credentials.password);
 
-        console.log("data", data);
+          const data = res.data;
 
-        return {
-          id: data.id,
-          name: data.firstName,
-          username: data.email,
-          accessToken: data.accessToken,
-        };
+          return {
+            id: data.id,
+            name: data.firstName,
+            username: data.email,
+            accessToken: data.accessToken,
+          };
+        } catch (e) {
+          return null;
+        }
       },
     }),
   ],
