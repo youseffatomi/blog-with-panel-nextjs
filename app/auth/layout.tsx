@@ -1,6 +1,6 @@
 import { Card } from "flowbite-react";
 
-import "@/css/index.css";
+import "@/app/_css/index.css";
 
 import Image from "next/image";
 import { redirect } from "next/navigation";

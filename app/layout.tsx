@@ -3,7 +3,7 @@ import AuthProvider from "@/app/AuthProvider";
 import { ThemeProvider } from "flowbite-react";
 import { Toaster } from "react-hot-toast";
 
-import "@/css/index.css";
+import "@/app/_css/index.css";
 
 export const metadata = {
   title: "Next.js",
