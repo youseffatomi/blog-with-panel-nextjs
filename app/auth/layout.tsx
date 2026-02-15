@@ -4,7 +4,7 @@ import "@/css/index.css";
 
 import Image from "next/image";
 import { redirect } from "next/navigation";
-import { GetServerToken } from "@/API/Auth";
+import { GetServerToken } from "@/app/_lib/api/Auth";
 
 export default async function AuthLayout({
   children,

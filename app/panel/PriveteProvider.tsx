@@ -1,4 +1,4 @@
-import { GetServerToken } from "@/API/Auth";
+import { GetServerToken } from "@/app/_lib/api/Auth";
 import { redirect } from "next/navigation";
 
 export default async function PriveteProvider({

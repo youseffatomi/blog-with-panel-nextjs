@@ -1,5 +1,5 @@
-import Theme from "@/config/theme";
-import AuthProvider from "@/providers/AuthProvider";
+import Theme from "@/app/_config/theme";
+import AuthProvider from "@/app/AuthProvider";
 import { ThemeProvider } from "flowbite-react";
 import { Toaster } from "react-hot-toast";
 

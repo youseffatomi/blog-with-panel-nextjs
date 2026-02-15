@@ -1,4 +1,4 @@
-import { Login } from "@/API/Auth";
+import { Login } from "@/app/_lib/api/Auth";
 import { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 

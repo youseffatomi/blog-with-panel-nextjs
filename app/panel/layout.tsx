@@ -1,5 +1,5 @@
-import PriveteLayout from "@/components/Privet_layout";
-import PriveteProvider from "@/providers/PriveteProvider";
+import PriveteLayout from "@/app/panel/layout/index";
+import PriveteProvider from "@/app/panel/PriveteProvider";
 
 export default function PanelLayout({
   children,

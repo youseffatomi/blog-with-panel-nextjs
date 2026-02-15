@@ -1,9 +1,9 @@
 import type { AxiosResponse } from "axios";
-import { AuthAPI } from "@/config/axios";
+import { AuthAPI } from "@/app/_config/axios";
 import { useSession } from "next-auth/react";
 
 import { getServerSession } from "next-auth";
-import { authOptions } from "@/config/Auth";
+import { authOptions } from "@/app/_config/Auth";
 
 interface RESPONSE {
   accessToken: string;
